@@ -18,6 +18,10 @@ The project treats the aircraft, sensor mounting, data logging and analysis as p
 
 The Simulink model is an educational flight-dynamics and control model. It is not a calibrated digital twin, is not deployed to the Pixhawk, and does not control the physical aircraft.
 
+![Simulink model overview](simulation/images/Drone_simulation_overview.png)
+
+*Packaged nominal Simulink model overview.*
+
 See [project status](docs/project-status.md), [limitations](docs/limitations.md) and the [roadmap](docs/roadmap.md) before interpreting any result.
 
 ## Repository structure
@@ -35,7 +39,7 @@ The Simulink package is available under [simulation](simulation/README.md). The 
 
 ## Current public packages
 
-- [Hardware integration record](hardware/README.md), including the [recorded BOM](hardware/bom.md) and [wiring/integration record](hardware/wiring-and-integration.md).
+- [Hardware integration record](hardware/README.md), including the [recorded BOM](hardware/bom.md), [wiring/integration record](hardware/wiring-and-integration.md) and [design rationale](hardware/design-rationale.md).
 - [Research motivation and methodology](research/motivation.md) for the planned particle-sensing workflow.
 - [Portfolio case study](portfolio/case-study.md), which separates physical integration, simulation evidence and future experimental claims.
 - [Flight-testing templates](flight-testing/README.md), currently blank preparation and evidence-recording templates for future reviewed testing.
