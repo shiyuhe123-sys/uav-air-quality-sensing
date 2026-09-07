@@ -2,7 +2,7 @@
 
 Progress is controlled by evidence gates rather than target dates. A later stage should not be presented as complete until its inputs and results are reviewable.
 
-## 1. Repository foundation — current stage
+## 1. Repository foundation — complete
 
 - Establish public structure, status language and contribution rules.
 - Define the boundary between publishable evidence and private source material.
@@ -10,14 +10,14 @@ Progress is controlled by evidence gates rather than target dates. A later stage
 
 Completion gate: clean Git history, relative documentation links and no private or generated source material.
 
-## 2. Package the Simulink model
+## 2. Package the Simulink model — packaged
 
 - Add the canonical model, parameter source, run scripts and validation scripts.
 - Add selected technical documentation and useful screenshots.
 - Record the known MATLAB release and required products after verification.
 - Explain what the configured validation establishes and what it does not.
 
-Completion gate: a new reader can locate the model and follow the documented run procedure; any reported checks are tied to saved evidence or a recorded rerun.
+Completion gate: a new reader can locate the model and follow the documented run procedure; reported checks are tied to the included saved report and are explicitly distinguished from a fresh rerun.
 
 ## 3. Document hardware and research
 

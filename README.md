@@ -13,8 +13,8 @@ The project treats the aircraft, sensor mounting, data logging and analysis as p
 | Bench operation | A stationary startup and initial log inspection have been reported. The logs are not yet included here. |
 | Physical flight testing | Not started. No flight-performance result is claimed. |
 | Air-quality measurements | Not started. No sensor dataset or spatial map exists yet. |
-| Simulink model | An existing nominal six-degree-of-freedom model includes cascaded control, motor models, disturbances, deterministic sensor noise, three flight modes and 3-D visualisation. Packaging is planned for a later repository stage. |
-| Simulation validation | Existing project records report passes for defined simulation scenarios. The model has not been calibrated against the physical aircraft. |
+| Simulink model | The packaged nominal six-degree-of-freedom model includes cascaded control, motor models, disturbances, deterministic sensor noise, three flight modes and 3-D visualisation. |
+| Simulation validation | The package includes validation scripts and the existing report of passes for defined simulation scenarios. Both packaged validation workflows were rerun successfully in MATLAB/Simulink R2024b on 7 September 2026. The model has not been calibrated against the physical aircraft. |
 
 The Simulink model is an educational flight-dynamics and control model. It is not a calibrated digital twin, is not deployed to the Pixhawk, and does not control the physical aircraft.
 
@@ -31,7 +31,7 @@ portfolio/       Concise case-study material derived from supported evidence
 docs/            Status, roadmap, evidence policy and reproducibility guidance
 ```
 
-The folders are placeholders in this foundation stage. Source material will be reviewed and added in later feature branches. Private correspondence, literature PDFs, archives, raw logs, generated caches and GPS-tagged photographs are deliberately absent.
+The Simulink package is available under [simulation](simulation/README.md). Hardware, research, flight-testing and portfolio source material will be reviewed and added in later feature branches. Private correspondence, literature PDFs, archives, raw logs, generated caches and GPS-tagged photographs are deliberately absent.
 
 ## Evidence language
 
@@ -44,7 +44,7 @@ Simulation results do not establish physical flight performance or sensing accur
 
 ## Reproducing the project
 
-Stage 1 contains documentation only. The model, scripts and exact run instructions will be added during the Simulink packaging stage after dependency and path checks. See [reproducibility](docs/reproducibility.md).
+The model, scripts and run sequence are documented in the [simulation README](simulation/README.md). Environment assumptions and the distinction between saved and rerun evidence are recorded in [reproducibility](docs/reproducibility.md).
 
 ## Contributing
 
