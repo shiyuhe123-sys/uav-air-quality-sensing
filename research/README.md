@@ -1,7 +1,11 @@
 # Research
 
-This folder will contain a concise research motivation, literature synthesis, reference list and staged experimental methodology.
+This folder describes the motivation, literature context and planned experimental methodology for the UAV particle-sensing project.
 
-The intended direction is to examine whether a UAV-based particle-sensing workflow can produce repeatable, position-referenced measurements while accounting for mounting and flight-induced sampling effects. No measurement result or claim of novelty is made in this foundation stage.
+The intended direction is to examine whether a student-buildable UAV and modular payload can produce repeatable, position-referenced particle measurements while accounting for mounting, flight-induced sampling effects, humidity and time/position alignment. No measurement result or completed research claim is made here.
 
-Literature PDFs and private correspondence will remain outside the public repository; later documentation will cite and link sources.
+- [Motivation and research question](motivation.md)
+- [Planned methodology](methodology.md)
+- [Public references](references.bib)
+
+Literature PDFs, private correspondence and local research notes remain outside the public repository. The references provide links to the cited public sources.

@@ -6,6 +6,9 @@
 - Current and thermal behaviour with the installed propellers have not been measured in flight.
 - No air-quality dataset, sensor calibration, bias comparison or spatial map exists.
 - Sampling interference from rotor flow has not been quantified.
+- The public hardware record does not include the exported as-built port, cable and parameter details for the reported DroneCAN power-monitor configuration.
+- The recorded component quantities are based on the project record; public photographs are not included as complete quantity evidence.
+- Historical wiring and BOM documents contained conflicting configurations and have therefore not been published as current instructions.
 - The Simulink model uses nominal mass, inertia, propulsion and controller values.
 - The model has not been calibrated against flight logs and does not operate the Pixhawk.
 - Existing simulation validation covers defined scenarios, not the full flight envelope or physical-aircraft safety.

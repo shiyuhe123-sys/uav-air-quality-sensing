@@ -19,14 +19,14 @@ Completion gate: clean Git history, relative documentation links and no private 
 
 Completion gate: a new reader can locate the model and follow the documented run procedure; reported checks are tied to the included saved report and are explicitly distinguished from a fresh rerun.
 
-## 3. Document hardware and research
+## 3. Document hardware and research — documented
 
 - Add a reconciled as-built hardware status and BOM.
 - Replace obsolete wiring guidance with the verified final power and signal architecture.
 - Add a concise research motivation, literature synthesis and staged methodology.
-- Add selected photographs only after metadata and content review.
+- Defer photographs until metadata and content review are complete.
 
-Completion gate: no contradictory power-module or build-status instructions remain, and planned sensor work is labelled clearly.
+Completion gate: the public record has one current hardware status, distinguishes the reported DroneCAN power-monitor resolution from the earlier analogue incompatibility, and labels planned sensor work clearly. The public record does not claim that the physical aircraft has flown.
 
 ## 4. Prepare flight testing
 
