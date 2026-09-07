@@ -68,7 +68,7 @@ Raw logs and private files may be referenced by a non-sensitive identifier witho
 
 ## Configuration limitations
 
-List any values that remain unknown or any difference between the recorded configuration and the aircraft actually used. In particular, do not infer an exact PM08D CAN port, cable or parameter configuration; those details remain pending an exported as-built record.
+List any values that remain unknown or any difference between the recorded configuration and the aircraft actually used. In particular, do not infer exact PM08-CAN-to-Pixhawk port numbers, cable pinout or parameter values; those details remain pending an exported as-built record.
 
 - Limitations:
 - Follow-up action:

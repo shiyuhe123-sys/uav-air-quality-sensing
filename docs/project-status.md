@@ -6,11 +6,11 @@ This page separates the current engineering record from planned work. It will be
 
 ## Physical aircraft
 
-Current source records describe a Tarot 650 Sport quadcopter with DYS D4215 650KV motors, Hobbywing XRotor Pro 50 A ESCs, 12-inch two-blade propellers, a 6S battery, Pixhawk 6C, M10 GPS/compass, ExpressLRS receiver and a DroneCAN-configured power monitor.
+Current source records describe a Tarot 650 Sport quadcopter with DYS D4215 650KV motors, Hobbywing XRotor Pro 50 A ESCs, 12×4.5 two-blade propellers, a 6S battery, Pixhawk 6C running ArduCopter, M10 GPS/compass, ExpressLRS receiver and a Holybro PM08-CAN power module using DroneCAN.
 
 Assembly, power and signal wiring, motor assignment and direction, GPS/compass calibration, radio calibration and pre-arm configuration are recorded as complete. A stationary startup and initial log review were reported on 7 September 2026. The current battery-included mass is only an approximate 2.6–2.8 kg. The public [hardware integration record](../hardware/README.md) and [recorded BOM](../hardware/bom.md) describe this status without treating the source photographs as complete quantity evidence.
 
-The final sensor mount and inlet are incomplete. The aircraft has not yet completed a test flight. Final payload mass, centre of gravity, installed-propeller current, hover performance, endurance, vibration and thermal behaviour are therefore unknown. The PM08D history is recorded cautiously: earlier guidance ruled out a direct analogue connection to the Pixhawk 6C POWER port, while the latest project record reports a successful DroneCAN configuration. The exact port, cable and exported parameters remain to be documented.
+The final sensor mount and inlet are incomplete. The aircraft has not yet completed a test flight. Final payload mass, centre of gravity, installed-propeller current, hover performance, endurance, vibration and thermal behaviour are therefore unknown. The current as-built description says the PM08-CAN six-pin Power & CAN harness branches to one Pixhawk CAN interface and one Pixhawk power interface. Exact port numbers, cable pinout and exported parameters remain to be documented.
 
 ## Simulation
 
@@ -24,7 +24,7 @@ The project motivation, literature synthesis and staged experimental approach ar
 
 ## Public documentation package
 
-Stage 3 adds a reconciled [hardware record](../hardware/README.md), [research motivation](../research/motivation.md), [planned methodology](../research/methodology.md) and [portfolio case study](../portfolio/case-study.md). These documents record the current engineering status and planned work; they do not add flight or sensing results.
+The public package includes a reconciled [hardware record](../hardware/README.md), [design rationale](../hardware/design-rationale.md), [research motivation](../research/motivation.md), [planned methodology](../research/methodology.md), [flight-testing templates](../flight-testing/README.md) and [portfolio case study](../portfolio/case-study.md). These documents record the current engineering status and planned work; they do not add flight or sensing results.
 
 ## Status definitions
 
