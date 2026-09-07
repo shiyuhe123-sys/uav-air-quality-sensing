@@ -4,7 +4,7 @@
 
 This project combines the integration of a Tarot 650-based quadcopter for a future particle-sensing payload with a separate MATLAB/Simulink quadrotor model. The engineering aim is to develop a modifiable sensing platform and a transparent workflow for investigating how payload placement and aircraft operation may affect measurements around built infrastructure.
 
-The physical aircraft uses a Tarot 650 Sport frame, four DYS D4215 650KV motors, four Hobbywing XRotor Pro 50 A ESCs, a Pixhawk 6C, GPS/compass, ExpressLRS radio and a reported DroneCAN power-monitor configuration. Assembly, wiring and configuration checks are recorded as complete in the source project record. The final sensor mount is still pending, and no physical test flight or air-quality measurement is claimed.
+The physical aircraft uses a Tarot 650 Sport frame, four DYS D4215 650KV motors, four Hobbywing XRotor Pro 50 A ESCs, 12×4.5 propellers, a Pixhawk 6C running ArduCopter, GPS/compass, ExpressLRS radio and a Holybro PM08-CAN DroneCAN power-monitor interface. Assembly, wiring and configuration checks are recorded as complete in the source project record. The final sensor mount is still pending, and no physical test flight or air-quality measurement is claimed.
 
 The software package contains a six-degree-of-freedom Simulink model with cascaded position, altitude and attitude control, four motor models, actuator limits, three flight modes, yaw-aware position mapping, deterministic sensor noise, disturbances and 3-D visualisation. The model is nominal and is not deployed to the Pixhawk.
 

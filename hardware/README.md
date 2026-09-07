@@ -8,8 +8,11 @@ See:
 
 - [recorded bill of materials](bom.md);
 - [wiring and integration record](wiring-and-integration.md);
+- [aircraft and payload design rationale](design-rationale.md);
 - [project status](../docs/project-status.md).
 
-The PM08D power-monitor history requires careful wording. Earlier wiring guidance treated it as unsuitable for direct analogue connection to the Pixhawk 6C POWER port. The latest project record reports that the installed setup was configured successfully through DroneCAN. The exact CAN port, cable and exported parameters are not included here, so the repository does not present them as independently verified as-built details.
+The current power module is the Holybro PM08-CAN, specified for 2–14S operation and 200 A continuous current by the manufacturer. The current as-built description says its six-pin Power & CAN interface branches to two Pixhawk 6C interfaces: one CAN port and one power port. Exact Pixhawk port numbers, cable pinout and exported parameters are not included here, so the repository does not present those details as independently verified.
+
+The [wiring record](wiring-and-integration.md) shows the high-current propulsion path separately from the CAN, power and PWM signal paths. It is a documentation diagram, not a substitute for the manufacturer manuals or a pre-energisation inspection.
 
 No photographs are included in this stage because the available source images contain location metadata and do not provide complete public evidence for the installed quantities.

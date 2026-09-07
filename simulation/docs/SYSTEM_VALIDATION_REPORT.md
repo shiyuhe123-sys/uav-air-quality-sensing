@@ -42,6 +42,6 @@ The large x/y displacement in the Stabilize test is expected. That mode commands
 - Flight modes were selected before each simulation. Transitions between modes during a run, controller-integrator resets, and bumpless transfer are not yet implemented.
 - The sensor model covers additive, band-limited noise. Bias drift, quantisation, delay, dropouts, and state estimation are not yet modelled.
 - The tests cover the configured disturbance pulses and command ranges. They are not an exhaustive flight-envelope or robustness analysis.
-- The next 3D visualisation phase should consume the true x/y/z and roll/pitch/yaw signals and must preserve the existing controller feedback paths.
+- Historical planning note: earlier versions of this report described 3-D visualisation as a future phase. The packaged 3-D visualisation is now implemented and covered by the separate visualisation validation; future work concerns extensions and additional scenarios, not first implementation.
 
 The repeatable test procedure is in `tests/validate_guidance_features.m`; complete numeric traces are saved in `outputs/validation/guidance_sensor_validation.mat`.

@@ -58,7 +58,7 @@ Do not publish coordinates, addresses, distinctive location descriptions or priv
 - Voltage or power-system check reference:
 - Battery/power limitations:
 
-Do not invent a PM08D CAN port, cable or parameter value. Use the exported as-built record when available.
+Do not invent PM08-CAN-to-Pixhawk port numbers, cable pinout or parameter values. Use the exported as-built record when available.
 
 ## Flight-controller status
 

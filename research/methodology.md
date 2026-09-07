@@ -4,13 +4,15 @@ Every stage in this document is planned. It must not be read as evidence that th
 
 ## Stage 1 — Payload and data definition
 
-Before flight testing, record the sensor model, payload mass, power requirements, inlet arrangement, intended mounting positions and storage format. The target row structure is:
+Before flight testing, record the sensor model, payload mass, power requirements, inlet arrangement, intended mounting positions and storage format. The target row structure is provisional and depends on the selected instrument:
 
 ```text
-time, x, y, z, particle-size bins, PM values, temperature, humidity, pressure/altitude, flight state
+time, x, y, z, instrument-supported particle metrics, instrument-supported PM fields, temperature, humidity, pressure/altitude, flight state
 ```
 
 Record the timestamp basis, sampling interval, units, missing-data representation and any clock offset. Keep raw recordings separate from processed files.
+
+Particle-size bins and PM values must not be assumed for every candidate sensor. After selection, record the actual channels, size ranges, units, detection limits, averaging behaviour and any unavailable fields. If the instrument does not provide a requested field, mark it as unavailable rather than reconstructing it from an unsupported proxy.
 
 ## Stage 2 — Bench logging and sensor checks
 
@@ -37,7 +39,7 @@ Define the comparison and acceptance criterion before each test. Report differen
 
 ## Stage 6 — Baseline vertical profiles
 
-If permitted by the site and operating requirements, repeat structured vertical profiles at defined heights. Treat this as a platform and baseline demonstration, not the central novelty claim. Include particle-size information, temperature, humidity, wind/context observations and the number of repeats. Do not publish a profile as a result until the raw data, configuration and processing are reviewed.
+If permitted by the site and operating requirements, repeat structured vertical profiles at defined heights. Treat this as a platform and baseline demonstration, not the central novelty claim. Include the particle metrics actually supported by the selected instrument, together with temperature, humidity, wind/context observations and the number of repeats. Do not publish a profile as a result until the raw data, configuration and processing are reviewed.
 
 ## Stage 7 — Sparse 3-D mapping
 

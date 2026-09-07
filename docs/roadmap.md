@@ -26,15 +26,17 @@ Completion gate: a new reader can locate the model and follow the documented run
 - Add a concise research motivation, literature synthesis and staged methodology.
 - Defer photographs until metadata and content review are complete.
 
-Completion gate: the public record has one current hardware status, distinguishes the reported DroneCAN power-monitor resolution from the earlier analogue incompatibility, and labels planned sensor work clearly. The public record does not claim that the physical aircraft has flown.
+Completion gate: the public record has one current hardware status, describes the PM08-CAN power/CAN architecture and its unresolved as-built connector details, and labels planned sensor work clearly. The public record does not claim that the physical aircraft has flown.
 
-## 4. Prepare flight testing
+## 4. Prepare flight testing — prepared
 
 - Add configuration, pre-test and flight-test record templates.
 - Define fields for mass, centre of gravity, battery, payload, conditions, logs, observations and limitations.
 - Define a repeatable log-review checklist.
 
 Completion gate: the repository can record a flight without implying that one has already occurred.
+
+The preparation gate is complete: the repository contains blank aircraft-configuration, pre-flight, first-flight, log-review and evidence-register templates. No physical flight is implied by their presence.
 
 ## 5. Add reviewed physical evidence — future
 
