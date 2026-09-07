@@ -1,0 +1,56 @@
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*.tmp
+*.bak
+*~
+.vscode/
+.idea/
+
+# Credentials and private material
+.env
+.env.*
+*.key
+*.pem
+private/
+**/local-context/
+*.eml
+
+# Dependency and temporary workspaces
+node_modules/
+.tmp/
+tmp/
+
+# MATLAB and Simulink generated artefacts
+slprj/
+*.slxc
+*.autosave
+*.asv
+*.m~
+*.mex*
+codegen/
+*.log
+
+# Generated and superseded outputs
+archive/
+**/archive/
+**/_build/
+**/_word_render/
+*.inspect.ndjson
+
+# Raw flight and sensor data: review before publishing a derived subset
+data/raw/
+flight-testing/logs/
+*.bin
+*.ulg
+*.tlog
+*.bag
+*.db3
+
+# Reproducible binary simulation outputs
+*.mat
+*.mp4
+*.avi
