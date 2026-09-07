@@ -17,7 +17,7 @@ Completion gate: clean Git history, relative documentation links and no private 
 - Record the known MATLAB release and required products after verification.
 - Explain what the configured validation establishes and what it does not.
 
-Completion gate: a new reader can locate the model and follow the documented run procedure; reported checks are tied to the included saved report and are explicitly distinguished from a fresh rerun.
+Completion gate: a new reader can locate the model and follow the documented run procedure. The saved validation report is included, and a documented MATLAB/Simulink R2024b rerun was completed during repository packaging; this validates the packaged nominal simulation configuration only. It does not validate or calibrate the model against the physical aircraft.
 
 ## 3. Document hardware and research — documented
 

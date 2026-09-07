@@ -38,7 +38,7 @@ The Simulink package is available under [simulation](simulation/README.md). The 
 - [Hardware integration record](hardware/README.md), including the [recorded BOM](hardware/bom.md) and [wiring/integration record](hardware/wiring-and-integration.md).
 - [Research motivation and methodology](research/motivation.md) for the planned particle-sensing workflow.
 - [Portfolio case study](portfolio/case-study.md), which separates physical integration, simulation evidence and future experimental claims.
-- [Flight-testing templates](flight-testing/README.md), ready for reviewed configuration and log evidence when testing begins.
+- [Flight-testing templates](flight-testing/README.md), currently blank preparation and evidence-recording templates for future reviewed testing.
 
 ## Evidence language
 
