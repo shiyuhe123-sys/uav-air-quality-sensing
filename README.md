@@ -31,7 +31,14 @@ portfolio/       Concise case-study material derived from supported evidence
 docs/            Status, roadmap, evidence policy and reproducibility guidance
 ```
 
-The Simulink package is available under [simulation](simulation/README.md). Hardware, research, flight-testing and portfolio source material will be reviewed and added in later feature branches. Private correspondence, literature PDFs, archives, raw logs, generated caches and GPS-tagged photographs are deliberately absent.
+The Simulink package is available under [simulation](simulation/README.md). The current public hardware and research record is available under [hardware](hardware/README.md) and [research](research/README.md); the [portfolio case study](portfolio/case-study.md) is an evidence-limited summary. Private correspondence, literature PDFs, archives, raw logs, generated caches and GPS-tagged photographs are deliberately absent.
+
+## Current public packages
+
+- [Hardware integration record](hardware/README.md), including the [recorded BOM](hardware/bom.md) and [wiring/integration record](hardware/wiring-and-integration.md).
+- [Research motivation and methodology](research/motivation.md) for the planned particle-sensing workflow.
+- [Portfolio case study](portfolio/case-study.md), which separates physical integration, simulation evidence and future experimental claims.
+- [Flight-testing templates](flight-testing/README.md), ready for reviewed configuration and log evidence when testing begins.
 
 ## Evidence language
 
