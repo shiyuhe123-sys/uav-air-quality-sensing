@@ -1,0 +1,79 @@
+{
+  "Score": {
+    "Interval_s": [
+      69.920343,
+      79.205097
+    ],
+    "Value": 7.362979779900925,
+    "Passed": false,
+    "Components": [
+      {
+        "Component": "GPS horizontal RMSE",
+        "Error": 0.21418093574095837,
+        "ToleranceFor8": 0.2,
+        "Score": 7.858190642590417
+      },
+      {
+        "Component": "CTUN altitude RMSE",
+        "Error": 0.09966534675877825,
+        "ToleranceFor8": 0.2,
+        "Score": 9.003346532412218
+      },
+      {
+        "Component": "EKF horizontal velocity vector RMSE",
+        "Error": 0.11366855923862862,
+        "ToleranceFor8": 0.25,
+        "Score": 9.090651526090971
+      },
+      {
+        "Component": "CTUN climb RMSE",
+        "Error": 0.08881509799578921,
+        "ToleranceFor8": 0.25,
+        "Score": 9.289479216033687
+      },
+      {
+        "Component": "Roll RMSE",
+        "Error": 1.2415980562247444,
+        "ToleranceFor8": 1,
+        "Score": 7.516803887550511
+      },
+      {
+        "Component": "Pitch RMSE",
+        "Error": 1.3185101100495376,
+        "ToleranceFor8": 1,
+        "Score": 7.362979779900925
+      },
+      {
+        "Component": "Yaw RMSE",
+        "Error": 2.235826929334064,
+        "ToleranceFor8": 3,
+        "Score": 8.50944871377729
+      },
+      {
+        "Component": "Maximum CTUN altitude error",
+        "Error": 0.17831416902109432,
+        "ToleranceFor8": 0.4,
+        "Score": 9.108429154894528
+      }
+    ],
+    "SampleCounts": [
+      46,
+      92,
+      92,
+      92,
+      92,
+      92,
+      92,
+      92
+    ]
+  },
+  "Window_s": [
+    69.920343,
+    79.205097
+  ],
+  "ReferenceStateDifference": 4.3608911017012364e-07,
+  "ReferenceMetricDifference": 0,
+  "Interpretation": "Conditional same-flight RTL tracking, initialized once from logged state. Stabilize/Loiter outside active demonstration; whole-flight and independent-flight accuracy unresolved.",
+  "NoParameterChanges": true,
+  "ParentVersion": "response_v5_trimmed_rtl_test"
+}

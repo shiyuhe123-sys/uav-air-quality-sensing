@@ -1,0 +1,92 @@
+{
+  "Window_s": [
+    69.920343,
+    79.205097
+  ],
+  "Duration_s": 9.2847539999999924,
+  "InitialState": {
+    "x0": 0,
+    "y0": 0,
+    "z0": 0.38128168064564816,
+    "vx0": -0.052624452140697782,
+    "vy0": 0.10783902727822957,
+    "vz0": 0.10200526706099869,
+    "phi0": -0.010363298506046918,
+    "theta0": -0.00080840981570286339,
+    "psi0": 2.7611814648389843,
+    "phi_dot0": -0.020043201319650841,
+    "theta_dot0": -0.036910761721846,
+    "psi_dot0": 0.052471370710646545
+  },
+  "Configuration": {
+    "Name": "V3_conditioned_start",
+    "Kp": 12,
+    "Kd": 12,
+    "FeedforwardGain": 0.85656364581423006,
+    "KpX": 0.1,
+    "KdX": 0.5,
+    "KpY": 0.1,
+    "KdY": 0.5,
+    "KpYaw": 0.012,
+    "KdYaw": 0.12,
+    "DragRate": 0,
+    "ConditionAllFilters": true,
+    "Ki": 0.1
+  },
+  "Physics": {
+    "PairThrustScale": 58,
+    "MotorTimeConstant": 0.02,
+    "VerticalDamping": 0.5,
+    "HorizontalDamping": 1,
+    "AxisVector": [
+      -0.017452406437283512,
+      -0,
+      0.99984769515639127
+    ],
+    "AxisRoll_deg": 0,
+    "AxisPitch_deg": -1
+  },
+  "Gravity_mps2": 9.81,
+  "HoverRotorSpeed_radps": 428.87935366487386,
+  "MaximumThrust_N": 22.4649,
+  "Components": [
+    "GPS horizontal RMSE",
+    "CTUN altitude RMSE",
+    "EKF horizontal velocity vector RMSE",
+    "CTUN climb RMSE",
+    "Roll RMSE",
+    "Pitch RMSE",
+    "Yaw RMSE",
+    "Maximum CTUN altitude error"
+  ],
+  "ToleranceFor8": [
+    0.2,
+    0.2,
+    0.25,
+    0.25,
+    1,
+    1,
+    3,
+    0.4
+  ],
+  "ExpectedErrors": [
+    0.21418093574095837,
+    0.09966534675877825,
+    0.11366855923862862,
+    0.088815097995789211,
+    1.2415980562247444,
+    1.3185101100495376,
+    2.2358269293340638,
+    0.17831416902109432
+  ],
+  "ExpectedSampleCounts": [
+    46,
+    92,
+    92,
+    92,
+    92,
+    92,
+    92,
+    92
+  ]
+}

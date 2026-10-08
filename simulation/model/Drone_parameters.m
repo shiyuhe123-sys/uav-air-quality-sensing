@@ -49,6 +49,15 @@ t_step_yaw = 1;               % Yaw command step time (s)
 t_step_z = 0;                 % Altitude command step time (s)
 t_stop = 100;                 % Simulation stop time (s)
 
+%% Measured-flight replay
+% Default-off selector for the optional ArduPilot hover replay path.
+% The logged collective is normalized. Tbase in this model represents the
+% combined thrust of one motor pair, so the conversion uses half of mg.
+replay_enabled = 0;
+replay_hover_collective = 0.248294550530; % Median CTUN.ThO, 64-70 s hover
+replay_hover_pair_thrust_scale_N = (mg/2) / replay_hover_collective;
+replay_collective_to_pair_thrust_N = 51.0; % 60/40 temporal calibration
+
 %% Switchable disturbance demonstration
 % 0 disables every disturbance and reproduces the nominal model. Set to 1
 % to apply the six pulses sequentially.
@@ -99,3 +108,4 @@ visual_demo_yaw = deg2rad(30);   % Demonstration yaw command (rad)
 visual_demo_disturbances = 1;    % Include the configured disturbance pulses
 visual_demo_sensor_noise = 0;    % Use ideal state feedback for a clear first view
 visual_record_video = 0;         % Set to 1 to also save an MP4 video
+

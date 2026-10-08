@@ -1,75 +1,137 @@
-# Air-quality sensing quadcopter and flight simulation
+# Quadrotor Flight Modelling and RTL Comparison
 
-## Project overview
+Portfolio copy prepared 4 October 2026. Project work documented June–October
+2026; one recorded flight on 28 September. This replaces the September
+pre-flight draft. See the [project status](../docs/project-status.md) and media below for the current evidence.
 
-This project combines the integration of a Tarot 650-based quadcopter for a future particle-sensing payload with a separate MATLAB/Simulink quadrotor model. The engineering aim is to develop a modifiable sensing platform and a transparent workflow for investigating how payload placement and aircraft operation may affect measurements around built infrastructure.
+## Overview
 
-The physical aircraft uses a Tarot 650 Sport frame, four DYS D4215 650KV motors, four Hobbywing XRotor Pro 50 A ESCs, 12×4.5 propellers, a Pixhawk 6C running ArduCopter, GPS/compass, ExpressLRS radio and a Holybro PM08-CAN DroneCAN power-monitor interface. Assembly, wiring and configuration checks are recorded as complete in the source project record. The final sensor mount is still pending, and no physical test flight or air-quality measurement is claimed.
+I assembled and configured a Tarot 650-based quadrotor and developed a modular
+six-degree-of-freedom flight model in MATLAB/Simulink. I then extended the
+project with AI-assisted flight-log processing, replay, diagnostics and visual
+comparison tools to investigate how the simulated response matched a real
+ArduPilot flight.
 
-The software package contains a six-degree-of-freedom Simulink model with cascaded position, altitude and attitude control, four motor models, actuator limits, three flight modes, yaw-aware position mapping, deterministic sensor noise, disturbances and 3-D visualisation. The model is nominal and is not deployed to the Pixhawk.
+The current demonstration tracks recorded Return to Launch (RTL) targets
+with simulated feedback. Over a 9.3-second interval, initialized once from
+logged state, the frozen model achieved **0.10 m altitude RMSE** and
+**0.21 m horizontal RMSE** against the logged references. Tests outside that
+scope exposed an unresolved manual-descent event, which remains part of the
+engineering record.
 
-## Engineering problem
+**Tools:** MATLAB, Simulink, Python, ArduCopter, Git/versioned experiment snapshots.
 
-An aircraft can reach a measurement location without producing representative particle data. Propeller flow, sensor position, humidity, flight mode, sensor response and time/position alignment can all affect the result. The project therefore treats the aircraft, payload mount, logging path and analysis workflow as one measurement system.
+## The aircraft and original aim
 
-UAV particle profiling and 3-D pollutant measurement already exist in the literature. The planned contribution is narrower: a student-buildable, modifiable platform with practical sampling-bias checks, explicit data-quality handling and sparse particle-size mapping around a defined built-environment feature.
+The aircraft integrates a commercial Tarot 650 Sport frame, four DYS D4215
+650KV motors, Hobbywing XRotor Pro 50 A ESCs, 12×4.5 propellers, a 6S battery,
+Pixhawk 6C, Holybro M10 GPS/compass and an ExpressLRS receiver. Wiring, motor
+direction, radio/GPS/compass configuration and the DroneCAN power monitor were
+documented. The later reported flight mass is approximately 3 kg.
 
-## Evidence available now
+The intended application is particle-size/air-quality sensing around built
+infrastructure. I reviewed payload, sampling and sensor-placement constraints
+and prepared a BOM, wiring guide, literature audit and staged research plan.
+Sensor-mount completion and environmental measurements remain future work.
+The real aircraft is controlled by ArduCopter.
 
-### Physical integration
+## From simulation to flight evidence
 
-- The current aircraft configuration and component roles are documented in the [hardware record](../hardware/README.md), [BOM](../hardware/bom.md) and [wiring/integration record](../hardware/wiring-and-integration.md).
-- Assembly, power and signal wiring, motor assignment and direction, GPS/compass calibration, radio calibration and pre-arm configuration are recorded as complete.
-- A stationary startup and initial log inspection were reported, but the logs are not public.
-- Reported battery-included mass is approximately 2.6–2.8 kg before the final payload configuration.
+The original model contains position/altitude/attitude control, a four-motor
+mixer, actuator dynamics and limits, six-degree-of-freedom dynamics, flight modes,
+yaw-aware command mapping, disturbances, sensor noise and 3-D outputs. Internal
+tests checked the configured software behaviour before comparison with flight data.
 
-These records do not establish physical flight stability, endurance, vibration, thermal performance or air-quality measurement accuracy.
+The first-flight processing pipeline imported **61,814 records across 74 message
+types**. It retained native timestamps and distinguished GPS position, CTUN
+altitude/climb and other estimator signals. The approximately 105-second log
+duration includes periods outside the airborne comparison.
 
-### Simulation
+Initial command replay exposed metre-scale horizontal drift. The investigation
+corrected a NED/FRD-to-positive-Up attitude interface, tested initialization,
+mass, reference alignment and force hypotheses, and restored simulated
+horizontal feedback in a separate experiment. Position-target tracking improved,
+while frozen manual-flight and continuous-replay tests showed that a close RTL
+fit did not transfer to every flight phase.
 
-The packaged model and [validation report](../simulation/docs/SYSTEM_VALIDATION_REPORT.md) provide configured simulation evidence. The saved validation covers structural checks, zero- and nonzero-yaw positioning, position hold, manual attitude control, deterministic noise repeatability, disturbances, a combined yaw/noise/disturbance case and a configured motor-thrust limit. The package validation record reports successful reruns in MATLAB/Simulink R2024b on 7 September 2026.
+## The RTL result
 
-One reported combined simulation case reached a maximum motor thrust of 10.513925 N against a configured 12.5 N limit, and the seeded noise repeatability check produced zero final-state difference in the repeated run. These are results of the nominal simulation scenarios, not measurements of the Tarot aircraft.
+The featured frozen v5 experiment starts at **69.920343 s** and ends at
+**79.205097 s** in the same recorded flight. It takes one logged initial state,
+then uses recorded internal targets and its own simulated feedback. It does
+not continually replace its states with the future measured trajectory.
 
-## Planned next evidence
+| Metric | Result |
+|---|---:|
+| Altitude RMSE, CTUN reference | 0.09967 m |
+| Horizontal vector RMSE, GPS reference | 0.21418 m |
+| Climb-rate RMSE, CTUN reference | 0.08882 m/s |
+| Maximum altitude error | 0.17831 m |
+| Roll / pitch RMSE | 1.2416° / 1.3185° |
+| Project-specific overall score | 7.363/10; below the original 8/10 target |
 
-The next useful physical evidence is staged:
+Scores use **92 native CTUN samples** and **46 native GPS samples**, with simulation
+interpolated to those reference timestamps. The saved RTL-only rerun reproduced
+the prior frozen trajectory within 4.36e−7 in the six state channels.
 
-1. finish and secure the sensor mount and inlet;
-2. record final mass and centre of gravity for each payload configuration;
-3. conduct a conservative first-flight baseline and review its raw log;
-4. verify payload logging, units, timestamps and clock alignment;
-5. compare a small number of sensor positions or flight conditions;
-6. only then consider repeatability tests, vertical profiles and sparse 3-D mapping.
+![Native-time altitude, climb-rate and horizontal-error plots](assets/rtl-tracking-results.png)
 
-The planned research methodology documents the gates and limitations for these stages. A loaded flight configuration must not be represented by an unloaded baseline.
+*Frozen six-DOF RTL tracking against one flight's logged references. The result
+is conditional on recorded targets, logged initialization and prior gain selection.*
 
-## Current limitations
+![Logged and simulated aircraft during RTL](assets/rtl-3d-still.png)
 
-- The final payload mount and inlet are incomplete.
-- No physical test flight has been completed.
-- Installed-propeller current and thermal behaviour are unmeasured.
-- No synchronized particle, meteorological or position dataset is public.
-- Sensor calibration, response time, sampling bias and repeatability remain pending.
-- The Simulink parameters have not been calibrated against the physical aircraft.
-- The Simulink controller is not deployed to the Pixhawk.
-- Future maps would be sparse sampled evidence, not a continuous atmospheric field.
+*Blue: GPS North/East, CTUN height and logged attitude. Orange: frozen v5
+simulation. Positions are local coordinates, and the log timestamp is retained.*
 
-## CV wording supported by the current record
+View the [3-D RTL video](assets/rtl-3d-demo.mp4)
+or use the [animated GIF](assets/rtl-3d-demo.gif).
+The full video uses half-speed playback and common reference coverage from
+70.040173 to 79.205097 s, following initialization at 69.920343 s.
 
-The following claims are supported if the work is described accurately:
+## What the failed tests taught me
 
-- Integrated and configured a Tarot 650-based quadcopter with Pixhawk 6C flight control, GPS/compass, ExpressLRS radio and a planned particle-sensing payload.
-- Developed a six-degree-of-freedom MATLAB/Simulink quadrotor model with cascaded control, four motor models, three flight modes, deterministic sensor noise, disturbances and 3-D visualisation.
-- Built repeatable assertion-based simulation validation for configured guidance, attitude, noise, disturbance and coordinate-consistency scenarios.
+A brief manual-descent event around 68.44 s produced a logged upward velocity
+change of approximately 0.99 m/s in 0.10 s, which the model did not reproduce.
+Two IMUs supported the event, but shared mounting and estimator dependencies
+prevented unique attribution. Subsequent error persisted, so excluding the
+event's scored rows did not repair the continuous trajectory.
 
-## Future wording templates — not achieved claims
+Six checks considered command logging, thrust mapping, descent airflow,
+mounting/attitude, timing/filtering and the manual/autonomous controller
+boundary. None established a transferable fix. I therefore kept RTL as the
+active demonstration and retained Stabilize/Loiter comparisons as unresolved
+transfer evidence. This sharpened the distinction between useful closed-loop
+tracking and a model that predicts the whole aircraft response.
 
-Use these only after the relevant evidence exists:
+## My contribution and tool assistance
 
-- Characterized flight performance across **[N]** tests for a **[mass] kg** configuration, measuring **[hover power/endurance/vibration metric]**.
-- Compared **[N]** sensor positions across **[N]** repeat runs and measured a **[percentage]** difference under **[conditions]**.
-- Built a processing workflow aligning **[N]** particle measurements with time and position, with a documented clock uncertainty of **[value]**.
-- Produced a sparse 3-D particle-size map over **[volume/site]** from **[N]** reviewed flight runs.
+My work includes hardware choices and assembly, the original controller,
+mixer, motor and plant work, flight observations and experiment decisions.
+Later import, replay, fitting, diagnostics, tests, reports and visualizations
+were substantially AI-assisted. I present those additions as assisted
+engineering work and keep the claim boundary tied to evidence I can trace.
 
-Do not replace the current supported wording until the raw configuration, data, processing method and limitations support the new numbers.
+## Limits and next steps
+
+The current comparison uses one previously inspected flight and logged
+estimator references. Propulsion capacity, damping, axis alignment and other
+physical parameters remain provisional. The Simulink controller has not been
+deployed to the aircraft, and independent-flight prediction remains unverified.
+
+The next engineering steps are to improve propulsion/transient evidence,
+justify mode-transition state handling, freeze the parameters and evaluate a
+new flight. The environmental branch then requires a completed mount,
+timestamped payload data and repeatable sampling experiments before claiming
+air-quality mapping results.
+
+## Compact portfolio card
+
+**Quadrotor Flight Modelling and RTL Comparison**
+
+Built and configured a quadrotor, developed a six-DOF Simulink model, and
+compared it with a real ArduPilot flight using native-time metrics and 3-D
+animation. Frozen RTL target tracking achieved 0.10 m altitude and 0.21 m
+horizontal RMSE over a 9.3 s interval initialized from logged state;
+manual-flight transfer limitations remain documented. Later analysis tooling
+was AI-assisted.

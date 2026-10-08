@@ -1,8 +1,28 @@
-# Quadrotor Simulink model
+# Quadrotor simulation and flight-log comparison
 
-This package contains a nominal six-degree-of-freedom quadrotor model for learning, controller development and repeatable simulation experiments. It is related to the physical air-quality UAV through the broader project motivation, but its parameters have not been calibrated against that aircraft and its controller is not deployed to the Pixhawk.
+This package contains a nominal six-degree-of-freedom quadrotor model for learning, controller development and repeatable simulation experiments. It is related to the physical air-quality UAV through the broader project motivation, with nominal educational parameters. The separate v5 experiment uses selected same-flight coefficients and recorded targets; it is not a comprehensively identified aircraft model. Neither controller is deployed to the Pixhawk.
 
 ![Simulink model overview](images/Drone_simulation_overview.png)
+
+## Active RTL comparison
+
+The separate `model/Drone_Response_v5.slx` and public derived inputs reproduce
+the latest conditional same-flight RTL comparison. From the repository root:
+
+```matlab
+addpath(fullfile(pwd,'simulation','scripts'));
+run_rtl_portfolio_demo('verify');
+run_rtl_portfolio_demo('animate');
+```
+
+The raw log is unnecessary for this demo. See [exact scope](docs/RTL_PORTFOLIO_SCOPE.md),
+[input provenance](evidence/rtl/README.md), [manual-descent limitation](docs/MANUAL_DESCENT_LIMITATION.md)
+and [package verification](docs/PUBLIC_PACKAGE_VALIDATION.md). Altitude/horizontal
+RMSE: 0.09967/0.21418 m over 9.284754 s; 7.363/10 remains below the original
+target. Whole-flight and independent-flight prediction are unresolved.
+
+The original model includes a default-off measured-command replay interface.
+The sections below describe its educational simulation and existing tests.
 
 ## Included scope
 
@@ -97,11 +117,22 @@ The second command expects `visualization_last_run.mat` from the first command. 
 
 ## Package map
 
-- [`model/Drone_simulation.slx`](model/Drone_simulation.slx) — canonical Simulink model.
-- [`model/Drone_parameters.m`](model/Drone_parameters.m) — single model-workspace parameter source.
-- [`scripts/`](scripts/) — parameter reload and 3-D demonstration utilities.
-- [`tests/`](tests/) — deterministic assertion-based validation scripts.
-- [`docs/`](docs/) — model behaviour, parameters and validation interpretation.
-- [`images/`](images/) — selected current model and visualisation screenshots.
+- [`model/Drone_simulation.slx`](model/Drone_simulation.slx) â€” canonical Simulink model.
+- [`model/Drone_parameters.m`](model/Drone_parameters.m) â€” single model-workspace parameter source.
+- [`scripts/`](scripts/) â€” parameter reload and 3-D demonstration utilities.
+- [`tests/`](tests/) â€” deterministic assertion-based validation scripts.
+- [`docs/`](docs/) â€” model behaviour, parameters and validation interpretation.
+- [`images/`](images/) â€” selected current model and visualisation screenshots.
 
 Development snapshots, caches, autosaves, generated `.mat` outputs and archived layout images are deliberately excluded.
+
+
+## Optional raw-log processing
+
+Python with `pymavlink` is required only for DataFlash import. In MATLAB, after
+adding the scripts path, call `run_day1_flight_import("path/to/flight.bin")`.
+It writes generated data under ignored `simulation/data/processed/` and
+`simulation/outputs/`; those files can contain precise GPS positions and are
+excluded from the public package. `prepare_response_airborne_inputs` and
+`response_initial_rates` retain the latest explicit-window input preparation
+for future supplied logs; independent-flight accuracy must be evaluated.

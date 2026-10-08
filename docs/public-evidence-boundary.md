@@ -5,6 +5,7 @@
 - Original project documentation written for this repository.
 - Canonical simulation source files and validation scripts.
 - Concise derived validation tables and selected model screenshots.
+- The reviewed local-coordinate RTL inputs, references, saved trajectory and selected portfolio GIF/video needed to substantiate the featured result.
 - A reconciled as-built BOM without order details or personal information.
 - Original hardware photographs after GPS and other identifying metadata are removed.
 - Research summaries, citations and links to lawful source copies.
@@ -23,3 +24,4 @@
 - Unrelated project material.
 
 Public images should be exported as new files after metadata removal. The originals should remain unchanged in the private source workspace. A public result should retain enough context to reproduce the analysis without exposing unnecessary personal or location data.
+

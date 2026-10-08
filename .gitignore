@@ -54,3 +54,11 @@ flight-testing/logs/
 *.mat
 *.mp4
 *.avi
+
+
+# Private derived raw-log imports and generated simulation runs
+simulation/data/processed/
+simulation/outputs/
+
+# Reviewed, compact portfolio video evidence
+!portfolio/assets/rtl-3d-demo.mp4

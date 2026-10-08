@@ -1,5 +1,12 @@
 # Portfolio case study
 
-The current public case study is in [case-study.md](case-study.md). It distinguishes physical integration, simulation results and planned experiments. It does not describe the model as a calibrated digital twin or claim that it controls the physical aircraft.
+The [case study](case-study.md) now includes the 28 September first flight,
+AI-assisted log analysis and frozen RTL target-tracking comparison. Selected
+native-time charts, local-coordinate CSVs, a 3-D still, GIF and uncut half-speed
+video are under `assets/`.
 
-Measured flight and sensing outcomes are intentionally absent. Quantitative CV statements about endurance, vibration, sensor placement or air-quality data should only be added after the relevant tests and analysis exist.
+The result is conditional same-flight tracking over 9.3 seconds, initialized
+once from logged state. It does not establish whole-flight prediction,
+independent-flight validation, sensing accuracy or Pixhawk deployment. The
+manual-descent failure and below-target score remain documented. Air-quality
+measurements and final sensor-mount work are pending.
