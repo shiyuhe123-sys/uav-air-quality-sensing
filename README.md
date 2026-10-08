@@ -10,19 +10,25 @@ The project treats the aircraft, sensor mounting, data logging and analysis as p
 |---|---|
 | Baseline aircraft | Assembly, wiring, motor-direction checks, GPS/compass calibration, radio calibration and reported pre-arm configuration are complete in the source project records. |
 | Sensor mount and inlet | In design; fabrication, installation and final measurement are pending. |
-| Bench operation | A stationary startup and initial log inspection have been reported. The logs are not yet included here. |
-| Physical flight testing | Not started. No flight-performance result is claimed. |
+| Flight evidence | 61,814 DataFlash records across 74 message types processed locally. A location-free derived RTL subset is included; the raw log remains private. |
+| Physical flight testing | First flight recorded on 28 September 2026; native-rate log processing and a public analysis summary are available. Final-payload testing and repeatability remain pending. |
 | Air-quality measurements | Not started. No sensor dataset or spatial map exists yet. |
 | Simulink model | The packaged nominal six-degree-of-freedom model includes cascaded control, motor models, disturbances, deterministic sensor noise, three flight modes and 3-D visualisation. |
-| Simulation validation | The package includes validation scripts and the existing report of passes for defined simulation scenarios. Both packaged validation workflows were rerun successfully in MATLAB/Simulink R2024b on 7 September 2026. The model has not been calibrated against the physical aircraft. |
+| Flight-log comparison | Separate frozen v5 RTL target tracking: 0.09967 m altitude / 0.21418 m horizontal RMSE over 9.284754 s, initialized once from logged state. Whole-flight and independent-flight prediction remain unresolved. |
 
-The Simulink model is an educational flight-dynamics and control model. It is not a calibrated digital twin, is not deployed to the Pixhawk, and does not control the physical aircraft.
+The original educational model and the latest conditional RTL comparison are both packaged. Aircraft physics have not been comprehensively identified. The real aircraft runs ArduCopter; the Simulink controller has not been deployed to the Pixhawk. The final sensor mount and air-quality measurements remain pending.
 
 ![Simulink model overview](simulation/images/Drone_simulation_overview.png)
 
 *Packaged nominal Simulink model overview.*
 
 See [project status](docs/project-status.md), [limitations](docs/limitations.md) and the [roadmap](docs/roadmap.md) before interpreting any result.
+
+## Latest result
+
+![Native-time RTL comparison](portfolio/assets/rtl-tracking-results.png)
+
+[Current case study and 3-D animation](portfolio/case-study.md) · [First-flight analysis](flight-testing/first-flight-analysis.md) · [Portable RTL rerun](simulation/docs/RTL_PORTFOLIO_SCOPE.md)
 
 ## Repository structure
 
@@ -42,7 +48,7 @@ The Simulink package is available under [simulation](simulation/README.md). The 
 - [Hardware integration record](hardware/README.md), including the [recorded BOM](hardware/bom.md), [wiring/integration record](hardware/wiring-and-integration.md) and [design rationale](hardware/design-rationale.md).
 - [Research motivation and methodology](research/motivation.md) for the planned particle-sensing workflow.
 - [Portfolio case study](portfolio/case-study.md), which separates physical integration, simulation evidence and future experimental claims.
-- [Flight-testing templates](flight-testing/README.md), currently blank preparation and evidence-recording templates for future reviewed testing.
+- [Flight-testing templates](flight-testing/README.md), with the first-flight analysis summary and blank preparation/evidence templates for subsequent testing.
 
 ## Evidence language
 
@@ -51,7 +57,7 @@ The Simulink package is available under [simulation](simulation/README.md). The 
 - **Simulated** identifies results produced by the nominal Simulink model.
 - **Planned** and **pending** describe work that has not been completed.
 
-Simulation results do not establish physical flight performance or sensing accuracy. Planned tests will only be described as results after their configuration, raw evidence and analysis have been reviewed.
+The RTL comparison uses one inspected flight, recorded targets, one logged initial state and simulated feedback. Its score is 7.363/10, below the original 8/10 target; the manual-descent failure remains documented. It does not establish whole-flight prediction or sensing accuracy.
 
 ## Reproducing the project
 
@@ -64,3 +70,4 @@ Changes should be made on focused feature branches and supported by reproducible
 ## Licence
 
 No public licence has been selected yet. Until a licence is added, the contents remain subject to the default protections of copyright law. Third-party papers, manuals and private correspondence are not part of this repository.
+

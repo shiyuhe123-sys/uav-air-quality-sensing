@@ -1,36 +1,76 @@
 # Project status
 
-Last reviewed: 7 September 2026.
-
-This page separates the current engineering record from planned work. It will be updated when evidence is added or a test changes the supported conclusions.
+Last reviewed: 7 October 2026; flight and portfolio evidence through 4 October.
 
 ## Physical aircraft
 
-Current source records describe a Tarot 650 Sport quadcopter with DYS D4215 650KV motors, Hobbywing XRotor Pro 50 A ESCs, 12×4.5 two-blade propellers, a 6S battery, Pixhawk 6C running ArduCopter, M10 GPS/compass, ExpressLRS receiver and a Holybro PM08-CAN power module using DroneCAN.
+The Tarot 650 Sport build integrates four DYS D4215 650KV motors, Hobbywing
+XRotor Pro 50 A ESCs, 12-inch two-blade propellers, a 6S battery, Pixhawk 6C,
+M10 GPS/compass, ExpressLRS receiver and a configured DroneCAN power monitor.
+Assembly, wiring, motor direction and calibration are recorded as complete.
+The latest builder-reported flight mass is approximately **3 kg**, superseding
+the earlier 2.6–2.8 kg estimate. Final mass and centre of gravity with the
+completed sensing payload remain pending.
 
-Assembly, power and signal wiring, motor assignment and direction, GPS/compass calibration, radio calibration and pre-arm configuration are recorded as complete. A stationary startup and initial log review were reported on 7 September 2026. The current battery-included mass is only an approximate 2.6–2.8 kg. The public [hardware integration record](../hardware/README.md) and [recorded BOM](../hardware/bom.md) describe this status without treating the source photographs as complete quantity evidence.
+The first physical flight was recorded on **28 September 2026**. Its DataFlash
+log was processed locally into 61,814 records across 74 message types. The
+roughly 105-second recording includes non-airborne periods. See the
+[first-flight analysis](../flight-testing/first-flight-analysis.md) for the
+public record and its limits. The raw log and precise location remain private.
 
-The final sensor mount and inlet are incomplete. The aircraft has not yet completed a test flight. Final payload mass, centre of gravity, installed-propeller current, hover performance, endurance, vibration and thermal behaviour are therefore unknown. The current as-built description says the PM08-CAN six-pin Power & CAN harness branches to one Pixhawk CAN interface and one Pixhawk power interface. Exact port numbers, cable pinout and exported parameters remain to be documented.
+The final sensor mount/inlet and environmental measurement campaign remain
+unfinished. One flight does not establish repeatable endurance, final-payload
+performance, airworthiness or sensing accuracy. Exported as-built connector
+and parameter details remain outside this public package.
 
-## Simulation
+## Simulation and flight comparison
 
-The source project contains a nominal six-degree-of-freedom MATLAB/Simulink model with cascaded position, altitude and attitude control; four motor models; force and torque disturbances; deterministic sensor noise; three preselected flight modes; yaw-aware position mapping; and 3-D visualisation.
+The [original educational model](../simulation/README.md) remains available
+with its tests, documented September package validation and default-off replay
+interface. It has position/altitude/attitude control, motor mixing, actuator
+dynamics, noise, disturbances, flight modes and 3-D outputs.
 
-The canonical model, parameter source, supporting scripts, validation scripts, selected technical documentation and selected screenshots are packaged under `simulation/`. Existing project records report successful defined validation scenarios. Both packaged validation workflows were rerun successfully in MATLAB/Simulink R2024b on 7 September 2026; details are in the [package validation record](../simulation/docs/PACKAGE_VALIDATION.md). Model parameters remain nominal and have not been calibrated using physical-flight data.
+The active demonstration uses the separate **Drone_Response_v5** model:
+conditional closed-loop tracking of recorded RTL targets from **69.920343 to
+79.205097 s**, initialized once from logged state. The model uses simulated
+state feedback. Future measured state is a comparison reference, not a
+continually injected correction.
+
+| Native-time metric | Result |
+|---|---:|
+| CTUN altitude RMSE | 0.09967 m |
+| GPS horizontal vector RMSE | 0.21418 m |
+| CTUN climb-rate RMSE | 0.08882 m/s |
+| Maximum altitude error | 0.17831 m |
+| Roll / pitch RMSE | 1.2416° / 1.3185° |
+| Project-specific score | 7.363/10; original 8/10 goal unmet |
+
+There are 92 native CTUN and 46 native GPS reference samples. The previous
+RTL-only rerun matched its frozen parent within 4.36e-7 in the six state
+channels. A small [public derived dataset](../simulation/evidence/rtl/README.md)
+now supports a portable regression check without the raw log.
+
+Six manual-descent checks did not establish a transferable correction for the
+event near 68.44 s. Stabilize/Loiter and continuous-flight comparisons remain
+unresolved diagnostics. [Failure investigation](../simulation/docs/MANUAL_DESCENT_LIMITATION.md)
+records the findings. Prior tuning, one inspected flight, provisional physics
+and estimator references constrain the interpretation. Whole-flight and
+independent-flight prediction remain unverified. The aircraft uses ArduCopter;
+the Simulink controller has not been deployed to it.
 
 ## Environmental sensing
 
-The project motivation, literature synthesis and staged experimental approach are now summarised in the public [research record](../research/motivation.md). No public sensor specification, completed mount, synchronized dataset, sensor-bias experiment, vertical profile or sparse 3-D particle map is currently present here.
+The [research methodology](../research/methodology.md) remains a staged plan.
+There is no completed payload dataset, sensor-bias experiment, vertical
+profile or sparse 3-D particle map. Sensor selection/configuration, mount,
+timestamp alignment and repeatability require further evidence.
 
-## Public documentation package
+## Public package
 
-The public package includes a reconciled [hardware record](../hardware/README.md), [design rationale](../hardware/design-rationale.md), [research motivation](../research/motivation.md), [planned methodology](../research/methodology.md), [flight-testing templates](../flight-testing/README.md) and [portfolio case study](../portfolio/case-study.md). These documents record the current engineering status and planned work; they do not add flight or sensing results.
-
-## Status definitions
-
-| Label | Meaning |
-|---|---|
-| Completed | Supported by an artefact or explicit project record. |
-| Reported | Recorded by the builder, with public evidence still to be packaged or reviewed. |
-| Simulated | Produced using the nominal software model. |
-| Pending | Not yet completed or evidenced. |
+The repository includes the hardware/research record, flight templates,
+first-flight summary, original model and latest RTL model, portable RTL
+inputs/references, processing source, native-time plots, GIF/video and
+[updated case study](../portfolio/case-study.md). Private correspondence,
+raw logs, geographic origins, third-party PDFs, caches and development archives
+are excluded. [Reproducibility](reproducibility.md) distinguishes recorded
+source-workspace results from verification of this public package.

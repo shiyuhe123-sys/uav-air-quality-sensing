@@ -1,18 +1,22 @@
 # Flight testing
 
-## No physical flight result exists yet
+## First flight recorded
 
-The aircraft has not completed a physical test flight. A stationary startup and initial log inspection have been reported, but they are not a flight test and are not public flight-log evidence. The sensor mount remains in design; the sensing payload has not been installed or flight-tested.
+The first flight on 28 September 2026 has a [public analysis summary](first-flight-analysis.md)
+and a location-free derived RTL comparison subset. The original log remains
+private. Sensor-mount completion, final-payload tests and environmental
+measurements are still pending.
 
-This folder contains blank preparation and evidence-recording templates. A template, even when completed, is not itself proof that a flight occurred or that a test was successful. Simulation results are not physical-flight evidence.
+The templates below remain blank for subsequent tests. They have not been
+backfilled to imply observations missing from the first-flight record.
 
 ## Templates
 
-- [Aircraft configuration record](aircraft-configuration-template.md) — records the exact aircraft, battery, propeller, payload and software configuration under test.
-- [Pre-flight checklist](pre-flight-checklist-template.md) — records preparation, site suitability, boundaries, abort criteria and the go/no-go decision.
-- [First-flight test record](first-flight-test-record-template.md) — records what was planned, what actually occurred and what evidence remains to be reviewed.
-- [Log-review checklist](log-review-checklist-template.md) — records provenance, completeness, warnings, flight behaviour and review outcome for a physical-flight log.
-- [Evidence register](evidence-register-template.md) — connects a claim or observation to its configuration, test record, log and analysis.
+- [Aircraft configuration record](aircraft-configuration-template.md) â€” records the exact aircraft, battery, propeller, payload and software configuration under test.
+- [Pre-flight checklist](pre-flight-checklist-template.md) â€” records preparation, site suitability, boundaries, abort criteria and the go/no-go decision.
+- [First-flight test record](first-flight-test-record-template.md) â€” records what was planned, what actually occurred and what evidence remains to be reviewed.
+- [Log-review checklist](log-review-checklist-template.md) â€” records provenance, completeness, warnings, flight behaviour and review outcome for a physical-flight log.
+- [Evidence register](evidence-register-template.md) â€” connects a claim or observation to its configuration, test record, log and analysis.
 
 ## Intended order of use
 
@@ -27,3 +31,4 @@ This folder contains blank preparation and evidence-recording templates. A templ
 Completed public records must be reviewed before publication. They should identify configuration, evidence, processing and limitations without exposing precise coordinates, addresses, distinctive site details, personal contact information or private absolute paths. Raw logs may be referenced by a non-sensitive identifier but should not be committed automatically; review their location, metadata and contents first.
 
 Unsupported claims remain pending. In particular, a completed checklist does not establish flight success, safety, endurance, sensor validity or model calibration. A physical result must be supported by a reviewed configuration, test record, raw-log provenance and appropriate analysis.
+

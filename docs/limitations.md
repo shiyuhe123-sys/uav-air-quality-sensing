@@ -1,16 +1,16 @@
 # Current limitations
 
-- No physical test flight has been completed or documented.
-- The final sensor mount, inlet, payload mass and centre of gravity are pending.
-- Current aircraft mass is approximate and excludes the final payload configuration.
-- Current and thermal behaviour with the installed propellers have not been measured in flight.
-- No air-quality dataset, sensor calibration, bias comparison or spatial map exists.
-- Sampling interference from rotor flow has not been quantified.
-- The public hardware record does not include the exported as-built port, cable and parameter details for the reported DroneCAN power-monitor configuration.
-- The recorded component quantities are based on the project record; public photographs are not included as complete quantity evidence.
-- Historical wiring and BOM documents contained conflicting configurations and have therefore not been published as current instructions.
-- The Simulink model uses nominal mass, inertia, propulsion and controller values.
-- The model has not been calibrated against flight logs and does not operate the Pixhawk.
-- Existing simulation validation covers defined scenarios, not the full flight envelope or physical-aircraft safety.
-- Flight-mode changes during a simulation, bumpless transfer and estimator realism are outside the current model scope.
-- Future environmental measurements will be research demonstrations rather than regulatory air-quality monitoring unless an appropriate validation basis is established.
+- One physical flight on 28 September 2026 has been analysed; repeated-flight and final-payload performance are not established.
+- The final sensor mount/inlet, all-up payload mass and centre of gravity remain pending. The approximately 3 kg flight mass is builder-reported.
+- No air-quality dataset, sensor calibration, rotor-flow bias comparison, repeatability result or spatial map exists.
+- Installed-propeller current, thermal behaviour and endurance have not been established as repeatable performance results.
+- Exact as-built ports, cable pinout and exported parameters are not included in the public hardware record.
+- The featured model comparison is conditional same-flight RTL target tracking, initialized once from logged state and using recorded internal targets.
+- The eight-component project score is 7.363/10, below the original 8/10 target. Small altitude error does not establish a general aircraft model.
+- Prior parameter selection and inspection mean the comparison is not untouched independent validation.
+- CTUN/EKF and GPS are logged estimator references with different sampling rates and coordinate conventions.
+- Mass, propulsion capacity, inertia, actuator response, damping and effective axis alignment are not comprehensively identified.
+- The manual-descent event remains unexplained; whole-flight, Stabilize/Loiter transfer and new-flight prediction remain unresolved.
+- Firmware integrator management, estimator realism, ground contact, spool-up and crash dynamics are outside the supported model scope.
+- The Simulink controller is separate from the aircraft's ArduCopter controller and has not been deployed to the Pixhawk.
+- Public derived local-coordinate evidence supports rerunning the RTL comparison. Full raw-log processing and diagnostic provenance require the private source evidence.
