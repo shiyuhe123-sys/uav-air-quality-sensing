@@ -57,8 +57,6 @@ The Simulink package is available under [simulation](simulation/README.md). The 
 - **Simulated** identifies results produced by the nominal Simulink model.
 - **Planned** and **pending** describe work that has not been completed.
 
-The RTL comparison uses one inspected flight, recorded targets, one logged initial state and simulated feedback. Its score is 7.363/10, below the original 8/10 target; the manual-descent failure remains documented. It does not establish whole-flight prediction or sensing accuracy.
-
 ## Reproducing the project
 
 The model, scripts and run sequence are documented in the [simulation README](simulation/README.md). Environment assumptions and the distinction between saved and rerun evidence are recorded in [reproducibility](docs/reproducibility.md).
