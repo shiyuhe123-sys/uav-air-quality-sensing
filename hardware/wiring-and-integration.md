@@ -82,13 +82,14 @@ Motor assignment and direction are reported as checked with the propellers remov
 
 ## Evidence boundary
 
+The first physical flight was recorded on **28 September 2026**, and its flight-log analysis is documented in the [first-flight analysis](../flight-testing/first-flight-analysis.md). The raw log remains private. This flight does not establish repeated-flight or final-payload performance.
+
 The following are not yet public or not yet established:
 
 - exact PM08-CAN-to-Pixhawk port numbers, cable pinout and exported parameters;
 - final payload mount, inlet geometry, mass and centre of gravity;
 - installed 12×4.5 propeller current and thermal behaviour;
-- vibration, failsafe, hover and endurance behaviour;
-- a completed flight test; and
+- repeatable vibration, failsafe, hover and endurance performance, including with the final payload configuration; and
 - synchronized sensor data.
 
 The public repository therefore documents the recorded configuration and unresolved evidence rather than presenting a completed airworthiness or measurement-validation claim.
